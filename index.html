@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Config page</title>
+  </head>
+  <body  font-family='Syne Mono'
+  text-align=center
+  color=#2c3e50
+  margin=80px,10px>
+    <div class="config">
+    <input type="file" id="configfile">
+    <button id="configinput">Upload</button>
+</div>
+    <div class="room">
+        <div class="videos">
+          <span>
+            <video id="webcamVideo" autoplay playsinline></video>
+          </span>
+          <span>
+            <video id="remoteVideo" autoplay playsinline></video>
+          </span>
+        </div>
+        <button id="webcamButton">turn on webcamera</button>
+        <h2>create room</h2>
+        <button id="callButton" disabled>create room</button>
+        <h2>join the room</h2>
+        <input id="callInput" />
+        <button id="answerButton" disabled>answer</button>
+        <h2>end call</h2>
+        <button id="hangupButton" disabled>end call</button>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
