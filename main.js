@@ -45,9 +45,16 @@ configinput.addEventListener('click', async () => {
   };
 })
 
-// 1 start video
+// 1 start devices
 webcamButton.addEventListener('click', async () => {
-  localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+  const constraints = {
+    'audio': {
+      'echoCancellation': true,
+      'noiseSuppression': true
+    },
+    'video': true
+  }
+  localStream = await navigator.mediaDevices.getUserMedia(constraints);
   remoteStream = new MediaStream();
   for (let track of localStream.getTracks()) {
     pc.addTrack(track, localStream);
@@ -61,7 +68,6 @@ webcamButton.addEventListener('click', async () => {
   remoteVideo.srcObject = remoteStream;
   callButton.disabled = false;
   answerButton.disabled = false;
-  webcamButton.disabled = true;
 })
 
 // 2 Create an offer
